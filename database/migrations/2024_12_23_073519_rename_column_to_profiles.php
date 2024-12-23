@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('new_profiles');
+        Schema::table('profiles', function (Blueprint $table) {
+           $table->renameColumn('Name','FullName');
+        });
     }
 
     /**
@@ -19,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('_profiles', function (Blueprint $table) {
+            //
+        });
     }
 };

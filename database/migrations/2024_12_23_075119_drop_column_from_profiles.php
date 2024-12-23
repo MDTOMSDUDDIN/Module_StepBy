@@ -11,7 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::rename('profiles','new_profiles');
+        Schema::table('profiles', function (Blueprint $table) {
+            // $table->dropColumn('City');               //drop single columns 
+            $table->dropColumn(['City','Phone']);       //drop multiple columns 
+        });
     }
 
     /**
@@ -19,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('profiles', function (Blueprint $table) {
+            //
+        });
     }
 };
