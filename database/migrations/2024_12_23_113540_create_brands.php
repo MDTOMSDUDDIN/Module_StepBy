@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('profiles', function (Blueprint $table) {
-            // $table->dropColumn('City');               //drop single columns 
-            $table->dropColumn(['City','Phone']);       //drop multiple columns 
+        Schema::create('brands', function (Blueprint $table) {
+            $table->id();
+            $table->string('brandName',200);
+            $table->string('brandImg',200);
+            $table->timestamp('create_at')->useCurrent();
+            $table->timestamp('update_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 
@@ -22,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('profiles', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('brands');
     }
 };

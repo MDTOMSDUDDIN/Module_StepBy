@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('profiles', function (Blueprint $table) {
-            $table->after('Name', function(Blueprint $table){
-                $table->string('Phone');
-                $table->string('address');
-                $table->timestamps();
-            });
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('email',100)->unique();
+            $table->string('otp',10);
+            $table->timestamp('create_at')->useCurrent();
+            $table->timestamp('update_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 
@@ -25,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('profiles', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('users');
     }
 };
