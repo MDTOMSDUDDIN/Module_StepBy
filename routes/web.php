@@ -23,3 +23,4 @@ require __DIR__.'/auth.php';
 
 route::get('/retrive',[DemoController::class,'DemoAction']);
 route::get('/Aggregates',[DemoController::class,'Aggregates']);
+route::get('/select',[DemoController::class,'select']);
