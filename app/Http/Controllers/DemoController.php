@@ -13,6 +13,10 @@ class DemoController extends Controller
     // }
 
     // public function DemoAction(){
+    //     $result=DB::table('profile')->first(4);           //first()
+    //     return $result;
+    // }
+    // public function DemoAction(){
     //     $result=DB::table('profile')->find(4);           //find()
     //     return $result;
     // }
@@ -22,9 +26,27 @@ class DemoController extends Controller
     //     return $result;
     // }
 
-    public function DemoAction(){
-        $result=DB::table('profile')->pluck('email',"firstname");
+    // public function DemoAction(){
+    //     $result=DB::table('profile')->pluck('email',"firstname");
+    //     return $result;
+    // }
+
+
+    function  Aggregates(){
+        // $result=DB::table('profile')->count();
+        // return $result;
+
+        // $result=DB::table('profile')->max('price');
+        // return $result;
+
+        // $result=DB::table('profile')->min('price');
+        // return $result;
+       
+        // $result=DB::table('profile')->avg('price');
+        // return $result;
+
+        $result=DB::table('profile')->sum('price');
         return $result;
-    }
+         } 
     
 }

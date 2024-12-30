@@ -22,3 +22,4 @@ require __DIR__.'/auth.php';
 
 
 route::get('/retrive',[DemoController::class,'DemoAction']);
+route::get('/Aggregates',[DemoController::class,'Aggregates']);
