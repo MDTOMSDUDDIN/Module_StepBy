@@ -49,8 +49,32 @@ class DemoController extends Controller
     //     return $result;
     //      } 
     
-         function select(){
-            $result=DB::table('profile')->select('firstname')->distinct()->get();
-            return $result;
-         }
+         // function select(){
+         //    $result=DB::table('profile')->select('firstname')->distinct()->get();
+         //    return $result;
+         // }
+
+      function innerJoin(){
+         $products=DB::table('products')
+          ->join('categories','products.category_id',"=",'categories.id')
+          ->join('brands','products.brand_id',"=",'brands.id')
+          ->get();
+          return $products;
+      }
+      
+      // function left_right(){
+      //    $products=DB::table('products')
+      //     ->leftJoin('categories','products.category_id',"=",'categories.id')
+      //     ->leftJoin('brands','products.brand_id',"=",'brands.id')
+      //     ->get();
+      //     return $products;
+      // }
+
+      function left_right(){
+         $products=DB::table('products')
+          ->rightJoin('categories','products.category_id',"=",'categories.id')
+          ->rightJoin('brands','products.brand_id',"=",'brands.id')
+          ->get();
+          return $products;
+      }
 }
