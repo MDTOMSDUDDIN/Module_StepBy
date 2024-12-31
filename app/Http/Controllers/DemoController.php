@@ -147,4 +147,61 @@ class DemoController extends Controller
          ->get();
          return $result;
       }
-}
+
+    function groupby(){
+      $result=DB::table('products')
+      ->groupBy('price')
+      ->having('price',">",'1000')
+      ->get();
+      return $result;
+    }
+
+
+//     function insert(){
+//       $result=DB::table('brands')
+//       ->insert([
+//          'brandName'=>'insert name ',
+//          'brandImg'=>'tomas.jpg'
+//       ]);
+//       return $result;
+//     }
+    function insert(Request $request){
+      $result=DB::table('brands')
+      ->insert($request->input());
+      return $result;
+    }
+
+    function update(Request $request){
+      $result=DB::table('brands')
+      ->where('id' ,$request->id)
+      ->update($request->input());
+      return $result;
+    }
+
+    function update_insert(Request $request){
+      $result=DB::table('brands')
+      ->updateOrInsert(
+         ['brandName'=>$request->name],
+         $request->input()
+      );
+      return $result;
+    }
+
+
+    function increment_decrement(Request $request){
+      $result=DB::table('products')
+      ->where('id',$request->id)
+      // ->increment('price',10);
+      ->decrement('price',20);
+      
+      return $result;
+    }
+
+
+    function delete( Request $request ){
+      $result=DB::table('products')
+      ->delete();
+      return $result;
+      }
+
+  }
