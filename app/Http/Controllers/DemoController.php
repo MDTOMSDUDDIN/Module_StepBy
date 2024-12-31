@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -77,4 +78,28 @@ class DemoController extends Controller
           ->get();
           return $products;
       }
+
+      function crossJoin(){
+         $products=DB::table('products')
+         ->crossJoin('brands')
+         ->get();
+      }
+
+
+      function advanceJoin(){
+         $products=DB::table('products')
+         ->join('categories', function(JoinClause $join){
+            $join->on('products.category_id',"=",'categories.id')
+            ->where('products.price',">",200);
+         })->get();
+       
+         return $products;
+      }
+
+      function unions(){
+        $query1=DB::table('products')->where('price','>',"200");
+        $query2=DB::table('products')->where('category_id',"=",3)->union($query1)->get(); 
+        return $query2;
+      }
+   
 }
