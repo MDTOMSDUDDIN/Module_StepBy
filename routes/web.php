@@ -34,3 +34,5 @@ route::get('/unions',[DemoController::class,'unions']);
 
 route::get('/where',[DemoController::class,'where']);
 route::get('/whereDay',[DemoController::class,'whereDay']);
+
+route::get('/order',[DemoController::class,'order']);

@@ -131,4 +131,20 @@ class DemoController extends Controller
          ->get();
          return $result;
       }
+
+      // function order(){
+      //    // $result=DB::table('brands')->orderBy('brandName','asc')->get();
+      //    // $result=DB::table('brands')->orderBy('brandName','desc ')->get();
+      //    // $result=DB::table('brands')->inRandomOrder()->first();
+      //    // $result=DB::table('brands')->oldest()->first();
+      //    $result=DB::table('brands')->latest()->first();
+      //    return $result;
+      // }
+      function order(){
+         $result=DB::table('products')
+         ->skip(2)
+         ->take(3)
+         ->get();
+         return $result;
+      }
 }
