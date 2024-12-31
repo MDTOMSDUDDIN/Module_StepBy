@@ -6,6 +6,8 @@ use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use function Pest\Laravel\get;
+
 class DemoController extends Controller
 {
     // public function DemoAction(){
@@ -98,8 +100,23 @@ class DemoController extends Controller
 
       function unions(){
         $query1=DB::table('products')->where('price','>',"200");
-        $query2=DB::table('products')->where('category_id',"=",3)->union($query1)->get(); 
+        $query2=DB::table('products')->where('products.discount',"=",10)->union($query1)->get(); 
         return $query2;
       }
    
+
+      public function where(){
+         $WHERE=DB::table('products')
+         // ->where('products.price',">",1000)
+         // ->whereNot('products.price',"=" ,"20")
+         // ->whereBetween('products.price',[100 ,1000])
+         // ->whereNotBetween('products.price',[100 ,1000])
+         // ->whereNull('products.price')
+         // ->whereNotNull('products.price')
+         // ->whereIn('products.price',[999.99,59.99])
+         ->whereNotIn('products.price',[999.99,59.99])
+   
+         ->get();
+         return $WHERE;
+      }
 }

@@ -30,3 +30,6 @@ route::get('/left_right',[DemoController::class,'left_right']);
 route::get('/crossJoin',[DemoController::class,'crossJoin']);
 route::get('/advanceJoin',[DemoController::class,'advanceJoin']);
 route::get('/unions',[DemoController::class,'unions']);
+
+
+route::get('/where',[DemoController::class,'where']);
