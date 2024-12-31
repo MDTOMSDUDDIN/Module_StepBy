@@ -119,4 +119,16 @@ class DemoController extends Controller
          ->get();
          return $WHERE;
       }
+
+
+      function whereDay(){
+         $result=DB::table('brands')
+         // ->whereDate('create_at','1')
+         // ->whereMonth('create_at','12')
+         // ->whereYear('create_at','2024')
+         // ->whereTime('create_at','19:49:08')
+         ->whereColumn('create_at','<','update_at') 
+         ->get();
+         return $result;
+      }
 }
