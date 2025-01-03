@@ -111,8 +111,61 @@ class Demo2Controller extends Controller
 
 
       // Pagination
-      return DB::table('products')->simplePaginate(5);
+      //return DB::table('products')->simplePaginate(5);
+ 
+      
 
+
+      // Insert
+      /*
+      return DB::table('users')
+          ->insert([
+              'firstName'=>'A',
+              'lastName'=>'B',
+              'email'=>'C',
+              'mobile'=>'D',
+              'password'=>'E',
+              'otp'=>'0'
+          ]);
+      */
+
+
+
+      // Update
+
+      /*
+      return DB::table('users')
+          ->where('id', 212)
+          ->update([
+              'firstName'=>'AAA',
+              'lastName'=>'BBB'
+          ]);
+      */
+
+
+      // Upsert -> update or insert
+      /*
+      return DB::table('users')
+          ->updateOrInsert(
+              ['email'=>'XYZ@gmail.com'],
+              [
+              'firstName'=>'A',
+              'lastName'=>'B',
+              'email'=>'XYZ@gmail.com',
+              'mobile'=>'D',
+              'password'=>'E',
+              'otp'=>'0'
+              ]
+          );
+      */
+
+
+      // Delete
+      
+      return DB::table('users')
+          ->where('id', 212)
+          ->delete();
+      
 
   }
 }
