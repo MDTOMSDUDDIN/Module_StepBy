@@ -1,7 +1,4 @@
 <?php
-
-use App\Http\Controllers\Demo2Controller;
-use App\Http\Controllers\DemoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +17,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-include('module17.php');
 
 
-//____________________________________________
-route::get('/demo1',[Demo2Controller::class,'demo1']);
+
