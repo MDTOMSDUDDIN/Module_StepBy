@@ -76,5 +76,13 @@ class DemoController extends Controller
         // return Product::whereDay('updated_at','2025-01-12')->get();    
         return Product::whereMonth('updated_at','01')->get();    
     }
-
+    public function paginate(Request $request){
+        // return Product::simplePaginate(2);
+        // return Product::Paginate(2);
+        return Product::Paginate(
+            $perPage=5,
+            $columns=['*'],
+            $pageName='Page',
+        );
+    }
 }

@@ -31,3 +31,4 @@ Route::get('/retrive',[DemoController::class,'retrive']);
 Route::get('/Aggreagates',[DemoController::class,'Aggreagates']);
 Route::get('/select',[DemoController::class,'select']);
 Route::get('/where',[DemoController::class,'where']);
+Route::get('/paginate',[DemoController::class,'paginate']);
