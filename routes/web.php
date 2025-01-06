@@ -22,3 +22,4 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/create-brand',[DemoController::class,'create']);
+Route::post('/update-brand/{id}',[DemoController::class,'update']);
