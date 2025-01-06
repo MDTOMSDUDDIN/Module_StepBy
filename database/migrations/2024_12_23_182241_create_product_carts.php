@@ -29,8 +29,8 @@ return new class extends Migration
             $table->string('color',100);
             $table->string('size',100);
 
-            $table->timestamp('create_at')->useCurrent();
-            $table->timestamp('update_at')->useCurrent()->useCurrentOnUpdate();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('categoryName',100);
             $table->string('categoryImg',100);
-            $table->timestamp('create_at')->useCurrent();
-            $table->timestamp('update_at')->useCurrent()->useCurrentOnUpdate();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

@@ -8,10 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Brand extends Model
 {
-    use HasFactory;
-
-    // protected $attributes=[
-    //     'brandName'=>'Default Brand',
-    //     'brandImg'=>'Default img.jpj',
-    // ]
+    protected $fillable=['brandName','brandImg'];
 }
