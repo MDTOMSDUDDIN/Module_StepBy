@@ -10,7 +10,15 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Model
 {
-    use HasFactory;
+    // use HasFactory;
+     function profile(){
+        return $this->hasOne(Profile::class);
+    }
+    
+     function post(){
+        return $this->hasMany(Post::class);
+    }
+
 }
 
 

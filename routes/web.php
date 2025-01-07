@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RelatioshipController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -32,3 +33,8 @@ Route::get('/Aggreagates',[DemoController::class,'Aggreagates']);
 Route::get('/select',[DemoController::class,'select']);
 Route::get('/where',[DemoController::class,'where']);
 Route::get('/paginate',[DemoController::class,'paginate']);
+
+
+Route::get('/relation',[RelatioshipController::class,'relation']);
+Route::get('/relationbelongsto',[RelatioshipController::class,'relationbelongsto']);
+

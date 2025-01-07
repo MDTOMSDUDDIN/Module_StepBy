@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('check', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
-            $table->string('otp');
+            $table->unsignedBigInteger('user_id');
+            $table->string('title');
+            $table->text('content');
+
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('check');
+        Schema::dropIfExists('posts');
     }
 };
