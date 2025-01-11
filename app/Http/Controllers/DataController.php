@@ -33,12 +33,27 @@ class DataController extends Controller
         // return Song::find(20);
         
 
-        // return Artist::all();
-         Artist::create(
-            [
-                "name"=>'tomas',
-            ]);
-         return Artist::all();
+        // // return Artist::all();
+        //  Artist::create(
+        //     [
+        //         "name"=>'tomas',
+        //     ]);
+        //  return Artist::all();
+
+        //  $song=Song::insert([
+        //     'title'=>'bystep',
+        //     'year'=>2024,
+        //     'artist_id'=>13,
+        //     'genre_id'=>1,
+        //  ]);
+        $song=[
+            'title'=>'bystep',
+            'year'=>2024,
+            'artist_id'=>13,
+            'genre_id'=>1,
+        ];
+        $song=Song::create($song);
+        return $song;
 
     }
 }
