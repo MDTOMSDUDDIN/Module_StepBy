@@ -59,9 +59,33 @@ class DataController extends Controller
         // return Song::with('Artist','Genre')->get();
         // return Song::with(['Artist','Genre'])->get();
         
-        $songs=Song::with(['Artist','Genre'])->orderBy('title')->get();
-        $songs->map(function($song){
-         echo  $song->title." - ".$song->artist->name." - ".$song." - ".$song->genre->name."<br>";
-        });
+        // $songs=Song::with(['Artist'])->orderBy('title')->get();
+        // $songs->map(function($song){
+        //  echo  $song->title." - ".$song->artist->name."<br>";
+        // });
+
+        // $songs=Song::with(['Artist','Genre'])->orderBy('title')->get();
+        // $songs->map(function($song){
+        //  echo  $song->title." - ".$song->artist->name." - ".$song." - ".$song->genre->name."<br>";
+        // });
+
+        // return Artist::with('songs')->get();
+        // return Artist::with('songs')->find(1);
+        // return Artist::with('songs')->find(1)->count();
+        // return Artist::with('songs')->whereIn('id',[1,2])->get();
+        // return Artist::with('songs')->whereName('Michael Jackson')->get();
+
+
+        // return Genre::with('songs')->get();
+        //  Genre::all();
+
+        // $songs=Song::all();
+        // foreach($songs as $song){
+        //     echo $song->title ."</br>";
+        // }
+
+        return Song::pluck('title');
+
+
     }
 }
