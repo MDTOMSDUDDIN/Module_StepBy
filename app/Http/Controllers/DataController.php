@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artist;
+use App\Models\Genre;
 use App\Models\Song;
 use Illuminate\Http\Request;
 
@@ -45,15 +46,18 @@ class DataController extends Controller
         //     'year'=>2024,
         //     'artist_id'=>13,
         //     'genre_id'=>1,
-        //  ]);
-        $song=[
-            'title'=>'bystep',
-            'year'=>2024,
-            'artist_id'=>13,
-            'genre_id'=>1,
-        ];
-        $song=Song::create($song);
-        return $song;
+        //   ]);
+        // $song=[
+        //     'title'=>'bystep',
+        //     'year'=>2024,
+        //     'artist_id'=>13,
+        //     'genre_id'=>1,
+        // ];
+        // $song=Song::create($song);
+        // return $song;
+
+        // return Song::with('Artist','Genre')->get();
+        return Song::with(['Artist','Genre'])->get();
 
     }
 }
