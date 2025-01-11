@@ -57,7 +57,11 @@ class DataController extends Controller
         // return $song;
 
         // return Song::with('Artist','Genre')->get();
-        return Song::with(['Artist','Genre'])->get();
-
+        // return Song::with(['Artist','Genre'])->get();
+        
+        $songs=Song::with(['Artist','Genre'])->orderBy('title')->get();
+        $songs->map(function($song){
+         echo  $song->title." - ".$song->artist->name." - ".$song." - ".$song->genre->name."<br>";
+        });
     }
 }
