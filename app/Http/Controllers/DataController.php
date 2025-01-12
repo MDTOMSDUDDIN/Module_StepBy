@@ -108,4 +108,12 @@ class DataController extends Controller
 
        return response()->json($book);
     }
+
+
+
+    function page(Request $request){
+        // return Song::paginate(5);
+        return Song::with('artist')->paginate(5);
+    }
+    
 }
