@@ -98,4 +98,14 @@ class DataController extends Controller
         // return Book::with('authors')->get();
         return Author::with('books')->get();
     }
+    
+    function insertbook(Request $request){
+       $author= Author::where('name','Jack London')->first();
+       $book=new book();
+       $book->title='white frog';
+       $book->save();
+       $book->authors()->attach($author);
+
+       return response()->json($book);
+    }
 }
