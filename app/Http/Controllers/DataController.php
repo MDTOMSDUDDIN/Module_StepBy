@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artist;
+use App\Models\Author;
+use App\Models\Book;
 use App\Models\Genre;
 use App\Models\Song;
 use Illuminate\Http\Request;
@@ -87,5 +89,13 @@ class DataController extends Controller
         return Song::pluck('title');
 
 
+    }
+
+    function  book(Request $request){
+        // return Book::all();
+        // return Author::all();
+
+        // return Book::with('authors')->get();
+        return Author::with('books')->get();
     }
 }

@@ -23,3 +23,4 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/data',[DataController::class,'index']);
+Route::get('/book',[DataController::class,'book']);
