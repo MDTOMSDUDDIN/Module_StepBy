@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class DemoController extends Controller
 {
     //
-}
+
 function demo1()
 {
 
@@ -30,4 +30,25 @@ function demo2()
 function demo3()
 {
     return Category::simplePaginate(3);
+}
+
+    function demo4()
+    {
+        return Category::paginate(
+            $perPage = 5,
+            $column = 'name',
+            $perPage= 'page'
+        );
+    }
+
+    function demo5()
+    {
+       return Category::orderBy('id', 'asc')->get();
+    }
+
+    function demo6()
+    {
+       // return Category::skip(2)->take(2)->get();
+       //  return Category::limit(3)->get();
+    }
 }
